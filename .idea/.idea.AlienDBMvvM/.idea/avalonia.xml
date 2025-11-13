@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="AlienDBMvvM/Views/CharacterWindow.axaml" value="AlienDBMvvM/AlienDBMvvM.csproj" />
+        <entry key="AlienDBMvvM/Views/DetailWindow.axaml" value="AlienDBMvvM/AlienDBMvvM.csproj" />
+        <entry key="AlienDBMvvM/Views/MainWindow.axaml" value="AlienDBMvvM/AlienDBMvvM.csproj" />
+      </map>
+    </option>
+  </component>
+</project>
