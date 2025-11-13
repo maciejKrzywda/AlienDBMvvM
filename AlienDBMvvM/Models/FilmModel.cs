@@ -13,5 +13,6 @@ public class FilmModel
     public string[] MainCharacters { get; set; }
     public string Ship {get; set;}
     public string Description { get; set; }
+    public string FunFact { get; set; }
 
 }
