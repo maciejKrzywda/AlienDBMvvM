@@ -3,6 +3,7 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="AlienDBMvvM/App.axaml" value="AlienDBMvvM/AlienDBMvvM.csproj" />
         <entry key="AlienDBMvvM/Views/CharacterWindow.axaml" value="AlienDBMvvM/AlienDBMvvM.csproj" />
         <entry key="AlienDBMvvM/Views/DetailWindow.axaml" value="AlienDBMvvM/AlienDBMvvM.csproj" />
         <entry key="AlienDBMvvM/Views/MainWindow.axaml" value="AlienDBMvvM/AlienDBMvvM.csproj" />

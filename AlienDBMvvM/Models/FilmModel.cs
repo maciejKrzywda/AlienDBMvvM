@@ -8,7 +8,7 @@ public class FilmModel
     public string Director { get; set; }
     public string ScreenWriter { get; set; }
     public string Genre { get; set; }
-    public int length { get; set; }
+    public int Duration { get; set; }
     public double Rating { get; set; }
     public string[] MainCharacters { get; set; }
     public string Ship {get; set;}
