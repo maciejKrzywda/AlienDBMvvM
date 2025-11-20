@@ -4,4 +4,5 @@ namespace AlienDBMvvM.ViewModels;
 
 public class ViewModelBase : ReactiveObject
 {
+    
 }
