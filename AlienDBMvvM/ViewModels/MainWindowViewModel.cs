@@ -1,23 +1,15 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Reactive;
+using System.Reactive.Linq;
 using AlienDBMvvM.Models;
 using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
 
 namespace AlienDBMvvM.ViewModels;
 
 public class MainWindowViewModel : ViewModelBase
 {
-
-    public MainWindowViewModel()
-    {
-        //var canShowDetails 
-        
-        ShowDetailsCommand = ReactiveCommand.CreateFromTask(async () =>
-        {
-            Console.WriteLine("Pokaz");
-        });
-    }
     
     public ObservableCollection<FilmModel> Films { get; } = new()
     {
@@ -114,5 +106,20 @@ public class MainWindowViewModel : ViewModelBase
     };
     
     public ReactiveCommand<Unit, Unit> ShowDetailsCommand { get; }
+    public Interaction<FilmModel, Unit> ShowDetailsWindow { get; }
+    [Reactive] public FilmModel? SelectedFilm { get; set; }
+
+    public MainWindowViewModel()
+    {
+        ShowDetailsWindow = new Interaction<FilmModel, Unit>();
+        var canShow = this.WhenAnyValue<MainWindowViewModel, FilmModel>(x => x.SelectedFilm)
+            .Select(f => f != null);
+        
+        ShowDetailsCommand = ReactiveCommand.Create(() =>
+        {
+            Console.WriteLine(SelectedFilm?.Title);
+            Console.WriteLine("Pokaz");
+        }, canShow);
+    }
 
 }

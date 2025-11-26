@@ -29,9 +29,11 @@
             ColumnDefinitions="*,*,*" 
             RowDefinitions="Auto, Auto, Auto"
             Margin="50, 0">
+            
             <ListBox 
                 Grid.ColumnSpan="3" 
                 ItemsSource="{Binding Films}"
+                SelectedItem="{Binding SelectedFilm, Mode=TwoWay}"
                 x:Name="FilmsListBox">
                 
                 <ListBox.ItemTemplate>
