@@ -107,19 +107,55 @@ public class MainWindowViewModel : ViewModelBase
     
     public ReactiveCommand<Unit, Unit> ShowDetailsCommand { get; }
     public Interaction<FilmModel, Unit> ShowDetailsWindow { get; }
-    [Reactive] public FilmModel? SelectedFilm { get; set; }
+
+    [Reactive] public FilmModel? SelectedFilm { get; set; } = new FilmModel() {
+        Title = "Alien",
+        PolishTitle = "Obcy – ósmy pasażer Nostromo",
+        ReleaseYear = 1979,
+        Director = "Ridley Scott",
+        ScreenWriter = "Dan O’Bannon",
+        Genre = "Sci-Fi / Horror",
+        Duration = 117,
+        Rating = 8.5,
+        MainCharacters = new string[] { "Ellen Ripley", "Dallas", "Ash", "Lambert", "Kane" },
+        Ship = "USCSS Nostromo",
+        Description =
+            "Załoga statku handlowego Nostromo odbiera sygnał z nieznanej planety. Po lądowaniu odkrywają obcą formę życia, która zaczyna eliminować członków załogi jeden po drugim.",
+        FunFact =
+            "Scena z „wyskakującym potworem” z klatki piersiowej aktora była niespodzianką dla obsady – ich reakcje są autentyczne."
+    };
 
     public MainWindowViewModel()
     {
-        ShowDetailsWindow = new Interaction<FilmModel, Unit>();
+        /*
         var canShow = this.WhenAnyValue<MainWindowViewModel, FilmModel>(x => x.SelectedFilm)
             .Select(f => f != null);
+        */
         
-        ShowDetailsCommand = ReactiveCommand.Create(() =>
+        ShowDetailsWindow = new Interaction<FilmModel, Unit>();
+                
+        ShowDetailsCommand = ReactiveCommand.CreateFromTask(async () =>
         {
-            Console.WriteLine(SelectedFilm?.Title);
-            Console.WriteLine("Pokaz");
-        }, canShow);
+
+            var data = new FilmModel()
+            {
+                Title = this.SelectedFilm.Title,
+                PolishTitle = this.SelectedFilm.PolishTitle,
+                ReleaseYear = this.SelectedFilm.ReleaseYear,
+                Director = this.SelectedFilm.Director,
+                ScreenWriter = this.SelectedFilm.ScreenWriter,
+                Genre = this.SelectedFilm.Genre,
+                Duration = this.SelectedFilm.Duration,
+                Rating = this.SelectedFilm.Rating,
+                MainCharacters = this.SelectedFilm.MainCharacters,
+                Ship = this.SelectedFilm.Ship,
+                Description = this.SelectedFilm.Description,
+                FunFact = this.SelectedFilm.FunFact,
+            };
+            
+            await ShowDetailsWindow.Handle(SelectedFilm);
+            
+        } /*, canShow */ );
     }
 
 }

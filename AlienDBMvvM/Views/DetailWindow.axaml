@@ -2,8 +2,109 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:AlienDBMvvM.ViewModels"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="AlienDBMvvM.Views.DetailWindow"
-        Title="DetailWindow">
-    Welcome to Avalonia!
+        x:DataType="vm:DetailWindowViewModel"
+        Height="700"
+        Width="800"
+        Title="{Binding Title, StringFormat=Szczegóły o filmie {0}}">
+    
+        <Design.DataContext>
+            <vm:DetailWindowViewModel />
+        </Design.DataContext>
+    
+        <StackPanel Margin="10" Spacing="20">
+            
+            <StackPanel Spacing="15" Margin="10">
+                <TextBlock
+                    FontSize="15"
+                    Text="{Binding Title, StringFormat=Oryginalny Tytuł: {0}}"
+                />
+            
+                <TextBlock
+                    FontSize="15"
+                    Text="{Binding PolishTitle, StringFormat=Polski Tytuł: {0}}"
+                />
+            
+                <TextBlock
+                    FontSize="15"
+                    Text="{Binding ReleaseYear, StringFormat=Data Wydania: {0}}"
+                />
+            
+                <TextBlock
+                    FontSize="15"
+                    Text="{Binding Director, StringFormat=Reżyser: {0}}"
+                />
+            
+                <TextBlock
+                    FontSize="15"
+                    Text="{Binding ScreenWriter, StringFormat=Scenarzysta: {0}}"
+                />
+            
+                <TextBlock
+                    FontSize="15"
+                    Text="{Binding Genre, StringFormat=Gatunek: {0}}"
+                />
+            
+                <TextBlock
+                    FontSize="15"
+                    Text="{Binding Duration, StringFormat=Czas Trwania: {0}min}"
+                />
+            
+                <ProgressBar
+                    Minimum="0"
+                    Maximum="10"
+                    Value="{Binding Rating}"
+                />
+            
+                <TextBlock
+                    FontSize="15"
+                    Text="{Binding Ship, StringFormat=Statek: {0}}"
+                />
+            
+                <TextBlock
+                    FontSize="15"
+                    TextWrapping="Wrap"
+                    Text="{Binding Description, StringFormat=Opis: {0}}"
+                />
+            
+                <TextBlock
+                    FontSize="15"
+                    TextWrapping="Wrap"
+                    Text="{Binding FunFact, StringFormat=Ciekawostka: {0}}"
+                />
+
+            </StackPanel>
+            
+            <Separator/>
+            
+            <Grid
+                ColumnDefinitions="*,*" 
+                RowDefinitions="Auto, Auto"
+                Margin="50, 10">
+                
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Content="O Bohaterach"
+                    Margin="10"
+                    Background="CornflowerBlue"
+                    />
+                
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Content="Powrót"
+                    Margin="10"
+                    Background="Red"
+                    Command="{Binding CloseDetailsCommand}"
+                    />
+                
+            </Grid>
+            
+        </StackPanel>
+        
+        
+        
 </Window>
