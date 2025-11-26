@@ -79,29 +79,17 @@
             
             <Separator/>
             
-            <Grid
-                ColumnDefinitions="*,*" 
-                RowDefinitions="Auto, Auto"
-                Margin="50, 10">
+          
                 
-                <Button
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Content="O Bohaterach"
-                    Margin="10"
-                    Background="CornflowerBlue"
-                    />
+            <Button
+                HorizontalAlignment="Center"
+                Content="O Bohaterach"
+                Margin="10"
+                Background="CornflowerBlue"
+                Command="{Binding ShowCharactersCommand}"
+            />
                 
-                <Button
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Content="Powrót"
-                    Margin="10"
-                    Background="Red"
-                    Command="{Binding CloseDetailsCommand}"
-                    />
-                
-            </Grid>
+         
             
         </StackPanel>
         

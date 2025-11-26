@@ -5,16 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="AlienDBMvvM.Views.CharacterWindow"
+        x:DataType="vm:CharacterViewModel"
         Width="800"
         Height="450"
-        Title="CharacterWindow">
+        Title="Postacie filmu">
     
         <Design.DataContext>
                 <!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-                <vm:MainWindowViewModel/>
+                <vm:CharacterViewModel/>
         </Design.DataContext>
         
-        
+        <StackPanel>
+            
+            <ComboBox
+                ItemsSource="{Binding AvailableSpecies}"
+                SelectedItem="{Binding SelectedSpecies}"
+                Width="200"
+                PlaceholderText="Filtruj po rasie..."
+                Margin="0 0 0 10"/>
+            
+            <ListBox
+                ItemsSource="{Binding NewCharacters}">
+                        
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Name, StringFormat=| {0} |}"/>
+                            <TextBlock Text="{Binding Spiecies, StringFormat=| {0} |}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+    
+
     
 </Window>
