@@ -38,6 +38,15 @@
                         <StackPanel Orientation="Horizontal" Spacing="10" HorizontalAlignment="Center">
                             <TextBlock Text="{Binding PolishTitle, StringFormat=| {0} |}"/>
                             <TextBlock Text="{Binding Rating, StringFormat=Ocena: {0}/10}"/>
+                            <Button
+                                Grid.Column="1"
+                                Grid.Row="1"
+                                Content="Usuń Film"
+                                Margin="10"
+                                Background="Red"
+                                HorizontalAlignment="Center"
+                                Command="{Binding DeleteCommand}"
+                            />
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
@@ -50,14 +59,6 @@
                 Margin="10"
                 Background="LimeGreen"
                 HorizontalAlignment="Right"/>
-            
-            <Button
-                Grid.Column="1"
-                Grid.Row="1"
-                Content="Usuń Film"
-                Margin="10"
-                Background="Red"
-                HorizontalAlignment="Center"/>
             
             <Button
                 Grid.Column="2"
