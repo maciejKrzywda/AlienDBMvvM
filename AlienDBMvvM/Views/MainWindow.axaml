@@ -52,7 +52,8 @@
                 Content="Dodaj Film"
                 Margin="10"
                 Background="LimeGreen"
-                HorizontalAlignment="Right"/>
+                HorizontalAlignment="Right"
+                Command="{Binding AddFilmCommand}"/>
             
             <Button
                 Grid.Column="1"
@@ -72,5 +73,46 @@
                 Command="{Binding ShowDetailsCommand}"/>
             
         </Grid>
+        <Grid ColumnDefinitions="*,*" 
+              RowDefinitions="Auto, Auto,Auto, Auto,Auto, Auto,Auto, Auto,Auto, Auto,Auto, Auto"
+              Width="450">
+            <TextBlock Text="Wpisz tytuł filmu: "/>
+            <TextBox Grid.Column="1" Width="200"/>
+            
+            <TextBlock Grid.Row="1" Text="Wpisz polski tytuł filmu: "/>
+            <TextBox Grid.Row="1" Grid.Column="1" Width="200"/>
+            
+            <TextBlock Grid.Row="2" Text="Wpisz datę wyjścia: "/>
+            <TextBox Grid.Row="2" Grid.Column="1" Width="200"/>
+            
+            <TextBlock Grid.Row="3" Text="Wpisz dyrektora: "/>
+            <TextBox Grid.Row="3" Grid.Column="1" Width="200"/>
+            
+            <TextBlock Grid.Row="4" Text="Wpisz osobę która pisała ekran: "/>
+            <TextBox Grid.Row="4" Grid.Column="1" Width="200"/>
+            
+            <TextBlock Grid.Row="5" Text="Wpisz ten wyraz z którym pan ma problem: "/>
+            <TextBox Grid.Row="5" Grid.Column="1" Width="200"/>
+            
+            <TextBlock Grid.Row="6" Text="Wpisz długość filmu: "/>
+            <TextBox Grid.Row="6" Grid.Column="1" Width="200"/>
+            
+            <TextBlock Grid.Row="7" Text="Wpisz jak bardzo się podobał film: "/>
+            <TextBox Grid.Row="7" Grid.Column="1" Width="200"/>
+            
+            <TextBlock Grid.Row="8" Text="Wpisz główne postaie: "/>
+            <TextBox Grid.Row="8" Grid.Column="1" Width="200"/>
+            
+            <TextBlock Grid.Row="9" Text="Wpisz nazwę statku: "/>
+            <TextBox Grid.Row="9" Grid.Column="1" Width="200"/>
+            
+            <TextBlock Grid.Row="10" Text="Wpisz opis filmu: "/>
+            <TextBox Grid.Row="10" Grid.Column="1" Width="200"/>
+            
+            <TextBlock Grid.Row="11" Text="Wpisz ciekawostkę: "/>
+            <TextBox Grid.Row="11" Grid.Column="1" Width="200"/>
+            
+        </Grid>
+        
     </StackPanel>
 </Window>

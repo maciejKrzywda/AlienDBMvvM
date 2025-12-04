@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Reactive;
 using System.Reactive.Linq;
 using AlienDBMvvM.Models;
+using Avalonia.Data;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 
@@ -10,7 +11,6 @@ namespace AlienDBMvvM.ViewModels;
 
 public class MainWindowViewModel : ViewModelBase
 {
-    
     public ObservableCollection<FilmModel> Films { get; } = new()
     {
         new FilmModel() {
@@ -105,6 +105,9 @@ public class MainWindowViewModel : ViewModelBase
 
     };
     
+    public ReactiveCommand<Unit, Unit> AddFilmCommand { get; }
+    
+    
     public ReactiveCommand<Unit, Unit> ShowDetailsCommand { get; }
     public Interaction<FilmModel, Unit> ShowDetailsWindow { get; }
 
@@ -133,6 +136,14 @@ public class MainWindowViewModel : ViewModelBase
         */
         
         ShowDetailsWindow = new Interaction<FilmModel, Unit>();
+
+        // AddFilmCommand = ReactiveCommand.CreateFromTask(async () =>
+        // {
+        //     new FilmModel()
+        //     {
+        //         Title = 
+        //     };
+        // });
                 
         ShowDetailsCommand = ReactiveCommand.CreateFromTask(async () =>
         {
