@@ -107,7 +107,7 @@ public class MainWindowViewModel : ViewModelBase
     
     public ReactiveCommand<Unit, Unit> AddFilmCommand { get; }
     
-    
+    public ReactiveCommand<Unit, Unit> RemoveFilmCommand { get; }
     public ReactiveCommand<Unit, Unit> ShowDetailsCommand { get; }
     public Interaction<FilmModel, Unit> ShowDetailsWindow { get; }
 
@@ -130,20 +130,13 @@ public class MainWindowViewModel : ViewModelBase
 
     public MainWindowViewModel()
     {
-        /*
-        var canShow = this.WhenAnyValue<MainWindowViewModel, FilmModel>(x => x.SelectedFilm)
-            .Select(f => f != null);
-        */
+        
         
         ShowDetailsWindow = new Interaction<FilmModel, Unit>();
-
-        // AddFilmCommand = ReactiveCommand.CreateFromTask(async () =>
-        // {
-        //     new FilmModel()
-        //     {
-        //         Title = 
-        //     };
-        // });
+        
+        AddFilmCommand = ReactiveCommand.Create(AddFilm);
+        
+        RemoveFilmCommand = ReactiveCommand.Create(RemoveFilm);
                 
         ShowDetailsCommand = ReactiveCommand.CreateFromTask(async () =>
         {
@@ -167,6 +160,33 @@ public class MainWindowViewModel : ViewModelBase
             await ShowDetailsWindow.Handle(SelectedFilm);
             
         } /*, canShow */ );
+    }
+    
+    public FilmModel newFilm { get; } = new FilmModel();
+    private void AddFilm()
+    {
+        Films.Add(new FilmModel()
+        {
+            Title = newFilm.Title,
+            PolishTitle = newFilm.PolishTitle,
+            ReleaseYear = newFilm.ReleaseYear,
+            Director = newFilm.Director,
+            ScreenWriter = newFilm.ScreenWriter,
+            Genre = newFilm.Genre,
+            Duration = newFilm.Duration,
+            Rating = newFilm.Rating,
+            MainCharacters = newFilm.MainCharacters,
+            Ship = newFilm.Ship,
+            Description = newFilm.Description,
+            FunFact = newFilm.FunFact
+        });
+
+    }
+    
+    private void RemoveFilm()
+    {
+        if (SelectedFilm != null)
+            Films.Remove(SelectedFilm);
     }
 
 }

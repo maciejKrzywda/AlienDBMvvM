@@ -1,3 +1,6 @@
+using System.Collections.ObjectModel;
+using System.Security.Cryptography.X509Certificates;
+
 namespace AlienDBMvvM.Models;
 
 public class FilmModel

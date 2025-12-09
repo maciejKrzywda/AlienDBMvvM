@@ -61,7 +61,8 @@
                 Content="Usuń Film"
                 Margin="10"
                 Background="Red"
-                HorizontalAlignment="Center"/>
+                HorizontalAlignment="Center"
+                Command="{Binding RemoveFilmCommand}"/>
             
             <Button
                 Grid.Column="2"
@@ -73,44 +74,46 @@
                 Command="{Binding ShowDetailsCommand}"/>
             
         </Grid>
-        <Grid ColumnDefinitions="*,*" 
-              RowDefinitions="Auto, Auto,Auto, Auto,Auto, Auto,Auto, Auto,Auto, Auto,Auto, Auto"
-              Width="450">
-            <TextBlock Text="Wpisz tytuł filmu: "/>
-            <TextBox Grid.Column="1" Width="200"/>
-            
-            <TextBlock Grid.Row="1" Text="Wpisz polski tytuł filmu: "/>
-            <TextBox Grid.Row="1" Grid.Column="1" Width="200"/>
-            
-            <TextBlock Grid.Row="2" Text="Wpisz datę wyjścia: "/>
-            <TextBox Grid.Row="2" Grid.Column="1" Width="200"/>
-            
-            <TextBlock Grid.Row="3" Text="Wpisz dyrektora: "/>
-            <TextBox Grid.Row="3" Grid.Column="1" Width="200"/>
-            
-            <TextBlock Grid.Row="4" Text="Wpisz osobę która pisała ekran: "/>
-            <TextBox Grid.Row="4" Grid.Column="1" Width="200"/>
-            
-            <TextBlock Grid.Row="5" Text="Wpisz ten wyraz z którym pan ma problem: "/>
-            <TextBox Grid.Row="5" Grid.Column="1" Width="200"/>
-            
-            <TextBlock Grid.Row="6" Text="Wpisz długość filmu: "/>
-            <TextBox Grid.Row="6" Grid.Column="1" Width="200"/>
-            
-            <TextBlock Grid.Row="7" Text="Wpisz jak bardzo się podobał film: "/>
-            <TextBox Grid.Row="7" Grid.Column="1" Width="200"/>
-            
-            <TextBlock Grid.Row="8" Text="Wpisz główne postaie: "/>
-            <TextBox Grid.Row="8" Grid.Column="1" Width="200"/>
-            
-            <TextBlock Grid.Row="9" Text="Wpisz nazwę statku: "/>
-            <TextBox Grid.Row="9" Grid.Column="1" Width="200"/>
-            
-            <TextBlock Grid.Row="10" Text="Wpisz opis filmu: "/>
-            <TextBox Grid.Row="10" Grid.Column="1" Width="200"/>
-            
-            <TextBlock Grid.Row="11" Text="Wpisz ciekawostkę: "/>
-            <TextBox Grid.Row="11" Grid.Column="1" Width="200"/>
+        <Grid
+            Width="425"
+            ColumnDefinitions="*,*" 
+            RowDefinitions="auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto">
+
+            <TextBlock Text="Podaj tytuł:"/>
+            <TextBox Grid.Column="1" Width="200" Text="{Binding newFilm.Title}" Watermark="Alien: Tuff"/>
+
+            <TextBlock Grid.Row="1" Text="Podaj Polski tytuł:"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Width="200" Text="{Binding newFilm.PolishTitle}" Watermark="Obcy: Tuff"/>
+
+            <TextBlock Grid.Row="2" Text="Podaj rok wydania:"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Width="200" Text="{Binding newFilm.ReleaseYear}" Watermark="2069"/>
+
+            <TextBlock Grid.Row="3" Text="Podaj dyrektora:"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Width="200" Text="{Binding newFilm.Director}" Watermark='Łukasz ":3" Darmofał '/>
+
+            <TextBlock Grid.Row="4" Text="Podaj ekran pisarza:"/>
+            <TextBox Grid.Row="4" Grid.Column="1" Width="200" Text="{Binding newFilm.ScreenWriter}" Watermark='Maciej "debil" Krzywda'/>
+
+            <TextBlock Grid.Row="5" Text="Wyraz z którym pan problem:"/>
+            <TextBox Grid.Row="5" Grid.Column="1" Width="200" Text="{Binding newFilm.Genre}" Watermark="Komedia"/>
+
+            <TextBlock Grid.Row="6" Text="Długość filmu:"/>
+            <TextBox Grid.Row="6" Grid.Column="1" Width="200" Text="{Binding newFilm.Duration}" Watermark="420"/>
+
+            <TextBlock Grid.Row="7" Text="Ocena filmu:"/>
+            <TextBox Grid.Row="7" Grid.Column="1" Width="200" Text="{Binding newFilm.Rating}" Watermark="6.7"/>
+
+            <TextBlock Grid.Row="8" Text="Główne postacie:"/>
+            <TextBox Grid.Row="8" Grid.Column="1" Width="200" Text="{Binding newFilm.MainCharacters}" Watermark="idiota 1, idiota 2"/>
+
+            <TextBlock Grid.Row="9" Text="Statek:"/>
+            <TextBox Grid.Row="9" Grid.Column="1" Width="200" Text="{Binding newFilm.Ship}" Watermark="Invincible II"/>
+
+            <TextBlock Grid.Row="10" Text="Opis filmu:"/>
+            <TextBox Grid.Row="10" Grid.Column="1" Width="200" Text="{Binding newFilm.Description}" Watermark="idioci będący debilami"/>
+
+            <TextBlock Grid.Row="11" Text="Ciekawostka:"/>
+            <TextBox Grid.Row="11" Grid.Column="1" Width="200" Text="{Binding newFilm.FunFact}" Watermark="taki film nie istnieje"/>
             
         </Grid>
         
